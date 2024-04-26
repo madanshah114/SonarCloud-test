@@ -5,6 +5,8 @@ on:
       - sonarcloud-pr-test
   pull_request:
     types: [opened, synchronize, reopened]
+    branches:
+      - sonarcloud-pr-test    
 jobs:
   build:
     name: Build and analyze
