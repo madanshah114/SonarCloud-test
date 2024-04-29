@@ -30,25 +30,25 @@ jobs:
         dotnet-version: |
           8.0.x
           3.1.x
-      # run: dotnet build    
-    #   shell: powershell        
-    #   run: |
-    #   dotnet-install.ps1 -Architecture x64 -InstallDir "/usr/share/dotnet/" -Runtime 'Microsoft.NETCore.App' -Version 3.1.2
-
-    # - name: Download dotnet-install.ps1
-    #   run: |
-    #     mkdir dotnet
-    #     curl -o dotnet/install-dotnet.ps1 https://github.com/actions/setup-dotnet/blob/main/externals/install-dotnet.ps1
-
-    # # Install or update .NET using PowerShell script
-    # - name: Install or update .NET
-    #   run: |
-    #     pwsh dotnet/install-dotnet.ps1 -Architecture x64 -InstallDir "/usr/share/dotnet/" -Runtime 'dotnet' -Version 3.1.2
-
 
     # Run NuGet restore for the solution at repo root
     - name: Run NuGet restore
       run: dotnet restore
+
+    # Install guardian
+    - name: Install guardian
+      run: |
+        dotnet tool install -g Guardian
+
+    # Initialize guardian
+    - name: Initialize guardian
+      run: |
+        guardian init
+
+    # Configure guardian for Roslyn Analyzers
+    - name: Configure guardian for Roslyn Analyzers
+      run: |
+        guardian configure -t roslynanalyzers      
 
     # Run code analysis for the solution at repo root
     - name: Run .NET Code Analysis
