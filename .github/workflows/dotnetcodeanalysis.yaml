@@ -25,7 +25,7 @@ jobs:
     # For local agents, ensure dotnet version 3.1.201 or later is installed by including this action:
     - uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.0.x'
+        dotnet-version: '6.0.0'
 
     # Run NuGet restore for the solution at repo root
     - name: Run NuGet restore
