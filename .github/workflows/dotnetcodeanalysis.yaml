@@ -39,7 +39,7 @@ jobs:
 
     # Run code analysis for the solution at repo root
     - name: Run .NET Code Analysis
-      uses: dotnet/code-analysis@v1
+      uses: dotnet/code-analysis@v2
       id: code-analysis
       with:
         project: .\SonarCloud-test.csproj
