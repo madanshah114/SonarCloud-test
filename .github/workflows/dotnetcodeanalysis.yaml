@@ -33,10 +33,13 @@ jobs:
 
     # Run code analysis for the solution at repo root
     - name: Run .NET Code Analysis
-      uses: dotnet/code-analysis@main
+      uses: dotnet/code-analysis@v1
       id: code-analysis
       with:
-        build-breaking: false
+        project: .\SonarCloud-test.csproj
+        build-breaking: true
+        style: minimum
+        all-categories: none
 
     # Upload the analysis results file
     - name: Upload analysis results
