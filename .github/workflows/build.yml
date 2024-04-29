@@ -1,10 +1,11 @@
-name: SonarCloud-dotnet
+name: SonarCloud
 on:
   push:
     branches:
       - sonarcloud-pr-test
   pull_request:
     types: [opened, synchronize, reopened]  
+
 jobs:
   build:
     name: Build and analyze
