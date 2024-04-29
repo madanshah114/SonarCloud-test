@@ -27,7 +27,7 @@ jobs:
     # For local agents, ensure dotnet version 3.1.201 or later is installed by including this action:
     - uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '3.1.2'
+        dotnet-version: '3.0.x'
     #   shell: powershell        
     #   run: |
     #   dotnet-install.ps1 -Architecture x64 -InstallDir "/usr/share/dotnet/" -Runtime 'Microsoft.NETCore.App' -Version 3.1.2
