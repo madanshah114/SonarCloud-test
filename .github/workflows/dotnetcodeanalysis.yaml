@@ -40,7 +40,7 @@ jobs:
     # Install or update .NET using PowerShell script
     - name: Install or update .NET
       run: |
-        pwsh dotnet/dotnet-install.ps1 -Architecture x64 -InstallDir "/usr/share/dotnet/"" -Runtime 'dotnet' -Version 3.1.2
+        pwsh dotnet/dotnet-install.ps1 -Architecture x64 -InstallDir "/usr/share/dotnet/" -Runtime 'dotnet' -Version 3.1.2
 
 
     # Run NuGet restore for the solution at repo root
