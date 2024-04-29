@@ -35,12 +35,12 @@ jobs:
     - name: Download dotnet-install.ps1
       run: |
         mkdir dotnet
-        curl -o dotnet/dotnet-install.ps1 https://github.com/actions/setup-dotnet/blob/main/externals/install-dotnet.ps1
+        curl -o dotnet/install-dotnet.ps1 https://github.com/actions/setup-dotnet/blob/main/externals/install-dotnet.ps1
 
     # Install or update .NET using PowerShell script
     - name: Install or update .NET
       run: |
-        pwsh dotnet/dotnet-install.ps1 -Architecture x64 -InstallDir "/usr/share/dotnet/" -Runtime 'dotnet' -Version 3.1.2
+        pwsh dotnet/install-dotnet.ps1 -Architecture x64 -InstallDir "/usr/share/dotnet/" -Runtime 'dotnet' -Version 3.1.2
 
 
     # Run NuGet restore for the solution at repo root
