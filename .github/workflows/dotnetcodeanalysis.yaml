@@ -34,7 +34,10 @@ jobs:
       run: dotnet restore
 
     - name: Install or update dotnet
-      run: dotnet-install.ps1 -Architecture x64 -InstallDir "/usr/share/dotnet/" -Runtime 'Microsoft.NETCore.App' -Version 3.1.2
+      run: |
+      dotnet-install.ps1
+      hmod +x dotnet-install.ps1
+      dotnet-install.ps1 -Architecture x64 -InstallDir "/usr/share/dotnet/" -Runtime 'Microsoft.NETCore.App' -Version 3.1.2
 
     # Run code analysis for the solution at repo root
     - name: Run .NET Code Analysis
