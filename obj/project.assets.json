@@ -8,23 +8,26 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\HP\\.nuget\\packages\\": {}
+    "C:\\Users\\acer\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\Nimbold\\Repos\\SonarCloud-test\\SonarCloud-test.csproj",
+      "projectUniqueName": "D:\\New folder\\Projects\\Active\\nimBOLD\\repos\\SonarCloud-test\\SonarCloud-test.csproj",
       "projectName": "SonarCloud-test",
-      "projectPath": "D:\\Project\\Nimbold\\Repos\\SonarCloud-test\\SonarCloud-test.csproj",
-      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\Nimbold\\Repos\\SonarCloud-test\\obj\\",
+      "projectPath": "D:\\New folder\\Projects\\Active\\nimBOLD\\repos\\SonarCloud-test\\SonarCloud-test.csproj",
+      "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
+      "outputPath": "D:\\New folder\\Projects\\Active\\nimBOLD\\repos\\SonarCloud-test\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
