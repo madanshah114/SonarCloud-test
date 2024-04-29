@@ -34,6 +34,7 @@ jobs:
       run: dotnet restore
 
     - name: Install or update dotnet
+      shell: powershell
       run: |
       dotnet-install.ps1
       hmod +x dotnet-install.ps1
