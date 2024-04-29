@@ -25,29 +25,40 @@ jobs:
     # For local agents, ensure dotnet version 3.1.201 or later is installed by including this action:
     - uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: |
-          3.1.x
+        dotnet-version: 8.0.x
 
-    - name: Install Package
-      run: dotnet add package Microsoft.CodeAnalysis.NetAnalyzers --version 8.0.0
+    # - name: Install Package
+    #   run: dotnet add package Microsoft.CodeAnalysis.NetAnalyzers --version 8.0.0
 
-    # Run NuGet restore for the solution at repo root
-    - name: Run NuGet restore
+    # # Run NuGet restore for the solution at repo root
+    # - name: Run NuGet restore
+    #   run: dotnet restore
+
+    # # Run code analysis for the solution at repo root
+    # - name: Run .NET Code Analysis
+    #   uses: dotnet/code-analysis@main
+    #   id: code-analysis
+    #   with:
+    #     project: .\SonarCloud-test.csproj
+    #     build-breaking: true
+    #     style: minimum
+    #     all-categories: none
+
+    # # Upload the analysis results file
+    # - name: Upload analysis results
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: analysis_results.sarif
+    #     path: ${{ steps.code-analysis.outputs.sarifFile }}
+
+    - name: Restore dependencies
       run: dotnet restore
 
-    # Run code analysis for the solution at repo root
-    - name: Run .NET Code Analysis
-      uses: dotnet/code-analysis@main
-      id: code-analysis
-      with:
-        project: .\SonarCloud-test.csproj
-        build-breaking: true
-        style: minimum
-        all-categories: none
+    - name: Build
+      run: dotnet build --configuration Release
 
-    # Upload the analysis results file
-    - name: Upload analysis results
-      uses: actions/upload-artifact@v2
-      with:
-        name: analysis_results.sarif
-        path: ${{ steps.code-analysis.outputs.sarifFile }}
+    - name: Run Roslynator.Analyzers
+      run: dotnet tool run roslynator analyze ./SonarCloud-test.csproj
+
+    - name: Run StyleCop.Analyzers
+      run: dotnet tool run stylecop.analyzers analyze ./SonarCloud-test.csproj
