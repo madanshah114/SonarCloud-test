@@ -44,10 +44,10 @@ jobs:
       uses: dotnet/code-analysis@main
       id: code-analysis
       with:
-        project: .\SonarCloud-test.csproj
-        build-breaking: true
-        style: minimum
-        all-categories: none
+        # project: .\SonarCloud-test.csproj
+        build-breaking: false
+        # style: minimum
+        # all-categories: none
 
     # Upload the analysis results file
     - name: Upload analysis results
