@@ -38,6 +38,7 @@ jobs:
     # Install guardian
     - name: Install guardian
       run: |
+        dotnet add package Microsoft.Security.CodeAnalysis.Cli --version 0.111.1
         dotnet tool install -g Guardian
 
     # Initialize guardian
