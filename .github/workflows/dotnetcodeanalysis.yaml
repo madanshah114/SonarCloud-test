@@ -25,23 +25,23 @@ jobs:
     # A version greater than or equal to v3.1.201 of dotnet must be installed on the agent in order to run this action.
     # Remote agents already have a compatible version of dotnet installed and this step may be skipped.
     # For local agents, ensure dotnet version 3.1.201 or later is installed by including this action:
-    - uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '8.0.x'
+    # - uses: actions/setup-dotnet@v1
+    #   with:
+    #     dotnet-version: '8.0.x'
     #   shell: powershell        
     #   run: |
     #   dotnet-install.ps1 -Architecture x64 -InstallDir "/usr/share/dotnet/" -Runtime 'Microsoft.NETCore.App' -Version 3.1.2
 
-    # Download the dotnet-install.ps1 script
-    # - name: Download dotnet-install.ps1
-    #   run: |
-    #     mkdir dotnet
-    #     curl -o dotnet/dotnet-install.ps1 https://github.com/actions/setup-dotnet/blob/main/externals/install-dotnet.ps1
+    Download the dotnet-install.ps1 script
+    - name: Download dotnet-install.ps1
+      run: |
+        mkdir dotnet
+        curl -o dotnet/dotnet-install.ps1 https://github.com/actions/setup-dotnet/blob/main/externals/install-dotnet.ps1
 
-    # # Install or update .NET using PowerShell script
-    # - name: Install or update .NET
-    #   run: |
-    #     pwsh dotnet/dotnet-install.ps1 -Architecture x64 -InstallDir /usr/share/dotnet/ -Runtime 'Microsoft.NETCore.App' -Version 3.1.2
+    # Install or update .NET using PowerShell script
+    - name: Install or update .NET
+      run: |
+        pwsh dotnet/dotnet-install.ps1 -Architecture x64 -InstallDir "/usr/share/dotnet/"" -Runtime 'dotnet' -Version 3.1.2
 
 
     # Run NuGet restore for the solution at repo root
