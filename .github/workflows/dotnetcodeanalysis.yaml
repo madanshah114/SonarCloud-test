@@ -5,7 +5,7 @@ name: .NET Code Analysis ubuntu-latest
 on:
   push:
     branches:
-      - sonarcloud-test
+      - sonarcloud-pr1-test
 
 jobs:
   sample:
