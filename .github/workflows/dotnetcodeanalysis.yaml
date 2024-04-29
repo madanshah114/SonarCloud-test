@@ -32,7 +32,6 @@ jobs:
     #   run: |
     #   dotnet-install.ps1 -Architecture x64 -InstallDir "/usr/share/dotnet/" -Runtime 'Microsoft.NETCore.App' -Version 3.1.2
 
-    Download the dotnet-install.ps1 script
     - name: Download dotnet-install.ps1
       run: |
         mkdir dotnet
