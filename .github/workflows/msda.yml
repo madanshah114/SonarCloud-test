@@ -84,6 +84,7 @@ jobs:
         sarif-file: ./.gdn/msdo.sarif
         title: My security issue
         dry-run: false
+        odc-sarif: true
 
     - name: Post SARIF findings in the pull request
       if: github.event_name == 'pull_request'
