@@ -27,11 +27,11 @@ jobs:
       - name: Convert sarif for uploading to GitHub
         uses: security-code-scan/security-code-scan-results-action@v1
 
-      - name: Build
-        run: |
-          ls -la
-          pwd
-          cd results && ls -la
+      # - name: Build
+      #   run: |
+      #     ls -la
+      #     pwd
+      #     cd results && ls -la
 
       - name: Upload sarif
         env:
