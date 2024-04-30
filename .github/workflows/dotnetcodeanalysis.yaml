@@ -2,10 +2,10 @@
 # docs are in the repo
 
 name: .NET Code Analysis ubuntu-latest
-on:
-  push:
-    branches:
-      - sonarcloud-pr1-test
+# on:
+#   push:
+#     branches:
+#       - sonarcloud-pr1-test
 
 jobs:
   sample:
