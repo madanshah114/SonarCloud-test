@@ -38,8 +38,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: github/codeql-action/upload-sarif@v2
         with:
-          name: sarif
-          path: codeql/results    
+          name: ../results/*
+          path: codeql/results 
+          fail-on-errors: false    
 
       - name: Upload SARIF artifact
         uses: actions/upload-artifact@v2
@@ -47,12 +48,12 @@ jobs:
           name: security-sarif
           path: /home/runner/work/SonarCloud-test/results/0.sarif 
           
-      - name: Comment on pull request
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: /home/runner/work/SonarCloud-test/results/0.sarif
-          repository-token: ${{ secrets.GITHUB_TOKEN }}
-          fail-on-errors: false                         
+      # - name: Comment on pull request
+      #   uses: github/codeql-action/upload-sarif@v2
+      #   with:
+      #     sarif_file: /home/runner/work/SonarCloud-test/results/0.sarif
+      #     repository-token: ${{ secrets.GITHUB_TOKEN }}
+      #     fail-on-errors: false                         
 
       # - name: Post SARIF findings in the issue
       #   uses: sett-and-hive/sarif-to-issue-action@v1
