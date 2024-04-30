@@ -39,6 +39,6 @@ jobs:
           repository: ${{ github.repository }}
           branch: ${{ github.head_ref }}
           pr-number: ${{ github.event.number }}
-          sarif-file: ./report/scan-findings.sarif
+          sarif-file: ./results/0.sarif
           title: "Security scanning results"
           odc-sarif: false
