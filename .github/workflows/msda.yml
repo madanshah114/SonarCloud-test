@@ -81,11 +81,12 @@ jobs:
         repo: ${{ github.repository }}
         branch: ${{ github.head_ref }}
         pr-number: ${{ github.event.number }}
-        sarif-file: ./.gdn/msdo.sarif
+        # sarif-file: ./.gdn/msdo.sarif
         title: My security issue
         dry-run: false
         odc-sarif: true
         url: https://github.com/madanshah114/SonarCloud-test/pull/3"
+        sarif-folder: ./.gdn
       continue-on-error: true
 
     # - name: Post SARIF findings in the pull request
