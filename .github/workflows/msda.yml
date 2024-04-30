@@ -51,6 +51,7 @@ jobs:
         pwd
         cd .gdn
         ls -la
+        cat msdo.sarif
       # Upload alerts to the Security tab
 
     - name: list files -1
