@@ -28,3 +28,4 @@ D:\Project\Nimbold\Repos\SonarCloud-test\obj\Debug\net8.0\refint\SonarCloud-test
 D:\Project\Nimbold\Repos\SonarCloud-test\obj\Debug\net8.0\SonarCloud-test.pdb
 D:\Project\Nimbold\Repos\SonarCloud-test\obj\Debug\net8.0\SonarCloud-test.genruntimeconfig.cache
 D:\Project\Nimbold\Repos\SonarCloud-test\obj\Debug\net8.0\ref\SonarCloud-test.dll
+D:\Project\Nimbold\Repos\SonarCloud-test\obj\Debug\net8.0\SonarCloud-test.sourcelink.json
