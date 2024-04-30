@@ -1,0 +1,61 @@
+on:
+  push:
+    branches:
+      - sonarcloud-pr-test
+  pull_request:
+    branches:
+      - main
+      - sonarcloud-test
+jobs:
+  SCS-PR:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 3.1.x
+
+      - name: Set up projects
+        uses: security-code-scan/security-code-scan-add-action@v1.2
+
+      - name: Build
+        run: |
+          dotnet restore
+          dotnet build
+
+      - name: Convert sarif for uploading to GitHub
+        uses: security-code-scan/security-code-scan-results-action@v1
+
+      # - name: Upload sarif
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   uses: github/codeql-action/upload-sarif@v2
+      #   with:
+      #     name: ../results/*
+      #     path: codeql/results 
+      #     fail-on-errors: false    
+
+      - name: Upload SARIF artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: security-sarif
+          path: /home/runner/work/SonarCloud-test/results/0.sarif
+          
+      - name: Comment on pull request
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: /home/runner/work/SonarCloud-test/results/0.sarif
+          repository-token: ${{ secrets.GITHUB_TOKEN }}
+          fail-on-errors: false                         
+
+      # - name: Post SARIF findings in the issue
+      #   uses: sett-and-hive/sarif-to-issue-action@v1
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     repository: ${{ github.repository }}
+      #     branch: ${{ github.head_ref }}
+      #     pr-number: ${{ github.event.number }}
+      #     sarif-file: ./results/0.sarif
+      #     title: "Security scanning results"
+      #     odc-sarif: false
