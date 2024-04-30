@@ -37,11 +37,13 @@ jobs:
       # tools: string. Optional. A comma-separated list of analyzer tools to run. Values: 'bandit', 'binskim', 'eslint', 'templateanalyzer', 'terrascan', 'trivy'.
     - name: list files
       run: |
-        ls -la
-        pwd
+        dir
+        echo Current directory: %cd%
         cd .gdn
-        ls -la
-        cat msdo.sarif
+
+        dir
+        echo Current directory: %cd%
+        type msdo.sarif
       # Upload alerts to the Security tab
     - name: Upload alerts to Security tab
       uses: github/codeql-action/upload-sarif@v2
