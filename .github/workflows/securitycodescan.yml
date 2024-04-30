@@ -1,7 +1,6 @@
 on:
   push:
-
-jobs:
+  jobs:
   SCS:
     runs-on: ubuntu-latest
     steps:     
