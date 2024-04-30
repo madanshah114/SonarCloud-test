@@ -85,15 +85,17 @@ jobs:
         title: My security issue
         dry-run: false
         odc-sarif: true
+      continue-on-error: true
 
     - name: Post SARIF findings in the pull request
       if: github.event_name == 'pull_request'
       uses: sett-and-hive/sarif-to-comment-action@v1
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.G_TOKEN }}
         repository: ${{ github.repository }}
         branch: ${{ github.head_ref }}
         pr-number: ${{ github.event.number }}
         sarif-file: /home/runner/work/SonarCloud-test/SonarCloud-test/.gdn/msdo.sarif
-        title: My security issue
+        title: My security issue - 2
         dry-run: false
+      continue-on-error: true
