@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - sonarcloud-test
+      - sonarcloud-pr-test
   pull_request:
     branches:
       - main
