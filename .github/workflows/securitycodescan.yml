@@ -45,7 +45,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: security-sarif
-          path: sarif                
+          path: /home/runner/work/SonarCloud-test/results/0.sarif                
 
       # - name: Post SARIF findings in the issue
       #   uses: sett-and-hive/sarif-to-issue-action@v1
