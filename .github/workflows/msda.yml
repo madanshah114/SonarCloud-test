@@ -72,13 +72,26 @@ jobs:
         name: alerts
         path: ${{ steps.msdo.outputs.sarifFile }}
 
-    - name: Post SARIF findings in the issue
-      uses: sett-and-hive/sarif-to-issue-action@v1
+    - name: Post SARIF findings in the pull request
+      if: github.event_name == 'pull_request'
+      uses: sett-and-hive/sarif-to-comment-action@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         repository: ${{ github.repository }}
         branch: ${{ github.head_ref }}
         pr-number: ${{ github.event.number }}
-        sarif-file: report.sarif
-        title: "Security scanning results"
-        odc-sarif: false
+        sarif-file: ./.gdn/msdo.sarif
+        title: My security issue
+        dry-run: false
+
+    - name: Post SARIF findings in the pull request
+      if: github.event_name == 'pull_request'
+      uses: sett-and-hive/sarif-to-comment-action@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        repository: ${{ github.repository }}
+        branch: ${{ github.head_ref }}
+        pr-number: ${{ github.event.number }}
+        sarif-file: /home/runner/work/SonarCloud-test/SonarCloud-test/.gdn/msdo.sarif
+        title: My security issue
+        dry-run: false
