@@ -77,25 +77,26 @@ jobs:
       if: github.event_name == 'pull_request'
       uses: sett-and-hive/sarif-to-comment-action@v1
       with:
-        token: ${{ secrets.G_TOKEN }}
-        repository: ${{ github.repository }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+        repo: ${{ github.repository }}
         branch: ${{ github.head_ref }}
         pr-number: ${{ github.event.number }}
         sarif-file: ./.gdn/msdo.sarif
         title: My security issue
         dry-run: false
         odc-sarif: true
+        url: https://github.com/madanshah114/SonarCloud-test/pull/3"
       continue-on-error: true
 
-    - name: Post SARIF findings in the pull request
-      if: github.event_name == 'pull_request'
-      uses: sett-and-hive/sarif-to-comment-action@v1
-      with:
-        token: ${{ secrets.G_TOKEN }}
-        repository: ${{ github.repository }}
-        branch: ${{ github.head_ref }}
-        pr-number: ${{ github.event.number }}
-        sarif-file: /home/runner/work/SonarCloud-test/SonarCloud-test/.gdn/msdo.sarif
-        title: My security issue - 2
-        dry-run: false
-      continue-on-error: true
+    # - name: Post SARIF findings in the pull request
+    #   if: github.event_name == 'pull_request'
+    #   uses: sett-and-hive/sarif-to-comment-action@v1
+    #   with:
+    #     token: ${{ secrets.G_TOKEN }}
+    #     repository: ${{ github.repository }}
+    #     branch: ${{ github.head_ref }}
+    #     pr-number: ${{ github.event.number }}
+    #     sarif-file: /home/runner/work/SonarCloud-test/SonarCloud-test/.gdn/msdo.sarif
+    #     title: My security issue - 2
+    #     dry-run: false
+    #   continue-on-error: true
