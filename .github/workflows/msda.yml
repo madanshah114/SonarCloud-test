@@ -54,3 +54,14 @@ jobs:
       with:
         name: alerts
         path: ${{ steps.msdo.outputs.sarifFile }}
+
+    - name: Post SARIF findings in the issue
+      uses: sett-and-hive/sarif-to-issue-action@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        repository: ${{ github.repository }}
+        branch: ${{ github.head_ref }}
+        pr-number: ${{ github.event.number }}
+        sarif-file: ./.gdn/msdo.sarif
+        title: "Security scanning results"
+        odc-sarif: false
