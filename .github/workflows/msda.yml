@@ -1,8 +1,8 @@
 name: MSDO windows-latest
 on:
-  push:
-    branches:
-      - msda
+  # push:
+  #   branches:
+  #     - msda
   pull_request:
     branches:
       - sonarcloud-test
